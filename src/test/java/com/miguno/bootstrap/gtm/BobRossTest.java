@@ -59,7 +59,7 @@ public class BobRossTest {
     public Object[][] paintingElementsWithoutHappyTreeData() {
         return new Object[][] {
                 { ImmutableSet.of("APPLE", "mountain", "cloud") },
-                { ImmutableSet.of("Samsung", "lake", "barn", "squirrel") } };
+                { ImmutableSet.of("happy tree", "lake", "barn", "squirrel") } };
     }
 
     /**
