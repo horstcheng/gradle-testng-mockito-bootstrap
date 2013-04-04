@@ -80,7 +80,7 @@ cobertura {
 mainClassName = "com.miguno.bootstrap.gtm.BobRoss"
 
 findbugs {
-        toolVersion = "2.0.1"
+        toolVersion = "2.0.2"
         sourceSets = [sourceSets.main]
         ignoreFailures = true
         reportsDir = file("$project.buildDir/findbugsReports")
