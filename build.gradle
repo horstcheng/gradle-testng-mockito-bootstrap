@@ -88,7 +88,7 @@ findbugs {
         reportLevel = "high"
         visitors = ["FindSqlInjection", "SwitchFallthrough"]
         omitVisitors = ["FindNonShortCircuit"]
-        includeFilter = file("config/findbugs/includeFilter.xml")
-        excludeFilter = file("config/findbugs/excludeFilter.xml")
+        includeFilter = file("**/findbugs/includeFilter.xml")
+        excludeFilter = file("**/findbugs/excludeFilter.xml")
     }
 
