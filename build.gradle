@@ -12,6 +12,7 @@ apply plugin: 'cobertura'
 apply plugin: 'application'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
+apply plugin: "findbugs"
 
 // group is the groupId
 group = 'com.miguno.bootstrap.gtm'
@@ -77,4 +78,17 @@ cobertura {
 }
 
 mainClassName = "com.miguno.bootstrap.gtm.BobRoss"
+
+findbugs {
+        toolVersion = "2.0.1"
+        sourceSets = [sourceSets.main]
+        ignoreFailures = true
+        reportsDir = file("$project.buildDir/findbugsReports")
+        effort = "max"
+        reportLevel = "high"
+        visitors = ["FindSqlInjection", "SwitchFallthrough"]
+        omitVisitors = ["FindNonShortCircuit"]
+        includeFilter = file("$rootProject.projectDir/config/findbugs/includeFilter.xml")
+        excludeFilter = file("$rootProject.projectDir/config/findbugs/excludeFilter.xml")
+    }
 
