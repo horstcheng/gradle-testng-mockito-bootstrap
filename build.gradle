@@ -80,11 +80,12 @@ cobertura {
 mainClassName = "com.miguno.bootstrap.gtm.BobRoss"
 
 findbugs {
-        toolVersion = "2.0.2"
+        toolVersion = "2.0.1"
         sourceSets = [sourceSets.main]
         ignoreFailures = true
         reportsDir = file("$project.buildDir/findbugsReports")
         effort = "max"
         reportLevel = "high"
         omitVisitors = ["FindNonShortCircuit"]
+        includeFilter = file("$rootProject.projectDir/config/findbugs/includeFilter.xml")
    }
