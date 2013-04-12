@@ -13,6 +13,14 @@ apply plugin: 'application'
 apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: "findbugs"
+apply plugin: 'checkstyle'
+
+checkstyle {
+configFile = file('./config/checkstyle/checkstyle.xml')
+ignoreFailures=true
+configProperties.put('checkstyle.cache.file','target/cachefile')
+}
+
 
 // group is the groupId
 group = 'com.miguno.bootstrap.gtm'

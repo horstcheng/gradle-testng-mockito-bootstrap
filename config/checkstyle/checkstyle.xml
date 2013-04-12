@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<!DOCTYPE module PUBLIC "-//Puppy Crawl//DTD Check Configuration 1.3//EN" "http://www.puppycrawl.com/dtds/configuration_1_3.dtd">  
+  
+<module name="Checker">  
+     <!-- 文件長度不超過1500行 -->  
+        <module name="FileLength">  
+            <property name="max" value="1500" />  
+        </module>  
+  
+    <module name="TreeWalker">  
+  
+        <!-- ##javadoc檢查##-->  
+        <!-- 檢查所有的interface跟class -->  
+        <module name="JavadocType" />  
+        <!-- 檢查所有方法的javadoc 可以不聲明RuntimeException-->
+         <module name="JavadocMethod">  
+            <property name="allowUndeclaredRTE" value="true" />  
+        </module>  
+        <!-- 檢查某個變數的javadoc -->
+        <module name="JavadocVariable" />  
+        
+         <!-- ############命名檢查 使用Sun官方定的規則############ -->  
+        <module name="TypeName" /><!-- 類別名稱 (class 或interface) 的檢查 -->  
+        <module name="MemberName" /><!-- 變數的檢查 -->  
+        <module name="MethodName" /><!-- 方法名稱的檢查 -->  
+        <module name="ParameterName " /><!-- 方法的參數名稱檢查 -->  
+        <module name="ConstantName" /><!-- 常數名稱的檢查 -->  
+        <!-- #################################################### -->
+        
+		
+		<!-- ############長度相關的檢查############ -->  
+          
+        <!-- 每行不超過120字-->  
+        <module name="LineLength">  
+            <property name="max" value="120" />  
+        </module>  
+        <!-- 方法不超過30行 -->  
+        <module name="MethodLength">  
+            <property name="tokens" value="METHOD_DEF" />  
+            <property name="max" value="30" />  
+        </module>  
+        <!-- 方法的參數不超過3個 -->  
+        <module name="ParameterNumber">  
+            <property name="max" value="3" />  
+        </module>  
+  
+        <!-- 多餘的關鍵字 -->  
+        <module name="RedundantModifier" />  
+        
+        <!-- #################################################### -->
+        
+        <!-- ############對區域的檢查############ -->  
+        <!-- 不能出現空白的區域 -->  
+        <module name="EmptyBlock" />  
+        <!-- 所有的區域都要使用大括號 -->  
+        <module name="NeedBraces" />  
+        <!-- 多餘的括號 -->  
+        <module name="AvoidNestedBlocks">  
+            <property name="allowInSwitchCase" value="true" />  
+        </module>  
+        <!-- #################################################### -->
+        
+        
+        <!-- ############編碼方面的檢查############ -->  
+  
+        <!-- 不許出現空語句 -->  
+        <module name="EmptyStatement" />  
+        <!-- 每個類都實作了equals()和hashCode()   
+        <module name="EqualsHashCode" />  -->
+        <!-- 不許使用switch   
+        <module name="IllegalToken">  
+            <property name="tokens" value="LITERAL_SWITCH" />  
+        </module>  -->
+        <!-- 不能使用內部賦值 -->  
+        <module name="InnerAssignment" />  
+        <!-- 絕對不能容忍魔法數 -->  
+        <module name="MagicNumber" />  
+        <!-- 循環控制的數字不能被修改 -->  
+        <module name="ModifiedControlVariable" />  
+        <!-- 多餘的throw -->  
+        <module name="RedundantThrows" />  
+        <!-- 不許使用未被簡化的條件表達式 -->  
+        <module name="SimplifyBooleanExpression" />  
+        <!-- 不許使用未被簡化的布林返回值 -->  
+        <module name="SimplifyBooleanReturn" />  
+        <!-- String的比較不能用!= 和 == -->  
+        <module name="StringLiteralEquality" />  
+        <!-- clone方法必需呼叫了super.clone() -->  
+        <module name="SuperClone" />  
+        <!-- finalize 必需呼叫了super.finalize() -->  
+        <module name="SuperFinalize" />  
+        <!-- **不能catch java.lang.Exception** -->  
+        <module name="IllegalCatch">  
+            <property name="illegalClassNames"  
+                value="java.lang.Exception" />  
+        </module>  
+        <!-- JUnitTestCase 的核心方法存在。  -->   
+        <module name="JUnitTestCase" /> 
+        <!-- 不許對方法的參數賦值 -->  
+        <module name="ParameterAssignment" />  
+        <!-- 不許有相同內容的String -->  
+        <module name="MultipleStringLiterals" />  
+        <!-- 同一行不能有多個宣告 -->  
+        <module name="MultipleVariableDeclarations" />  
+        
+        <!-- 可選擇 -->
+        <!-- if最多3層 -->  
+        <module name="NestedIfDepth">  
+            <property name="max" value="3" />  
+        </module>  
+        <!-- try最多被包1層-->  
+        <module name="NestedTryDepth" /> 
+        <!-- 一個方法中最多有3個return -->  
+        <module name="ReturnCount">
+        	<property name="max" value="3" />  
+        </module>  
+        
+        <!-- #################################################### -->
+        
+        <!-- ############各种量度############ -->  
+        <!-- 布林表示式的複雜度，不超過3 
+        Restrict the number of number of &&, ||, &, | and ^ in an expression.
+        Rationale: Too many conditions leads to code that is difficult to read and hence debug and maintain.
+        Note that the operators & and | are not only integer bitwise operators, they are also the non-shortcut versions of the boolean operators && and ||.
+        -->  
+        <module name="BooleanExpressionComplexity">
+    		<property name="max" value="7"/>
+		</module> 
+        <!-- 類數據的抽象耦合，不超過7 -->  
+        <module name="ClassDataAbstractionCoupling" />  
+        <!-- 類的分散複雜度，不超過20 -->  
+        <module name="ClassFanOutComplexity" />  
+        <!-- 函數的分支複雜度，不超過10 -->  
+        <module name="CyclomaticComplexity" />  
+        <!-- NPath複雜度，不超過200 -->  
+        <module name="NPathComplexity" />  
+        <!-- #################################################### -->
+  
+        <!-- 雜項 -->  
+        <!-- 禁止使用System.out.println -->  
+        <module name="RegexpSinglelineJava">  
+            <property name="format" value="System\.out\.println" />  
+            <property name="ignoreComments" value="true" />  
+        </module>  
+  
+        <!-- 不許使用與程式碼同行的註釋 -->  
+        <module name="TrailingComment" />    
+        
+        
+   
+    </module>  
+  
+    <!-- 檢查翻譯文件       -->  
+    <module name="Translation" />  
+  
+</module>  
