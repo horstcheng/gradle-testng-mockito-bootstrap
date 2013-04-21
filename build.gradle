@@ -95,5 +95,5 @@ findbugs {
         effort = "max"
         reportLevel = "medium"
         //omitVisitors = ["FindNonShortCircuit"]
-        //includeFilter = file("./config/findbugs/includeFilter.xml")
+        includeFilter = file("./config/findbugs/includeFilter.xml")
    }
